@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.Date;
+import java.util.HashMap;
 
 @Data
 @Entity
@@ -19,5 +20,5 @@ public class Students {
     private String lastName;
     private String middleName;
     private Date birthday;
-    private Long yearOfStudy;
+    private Long numberOfClass;
 }

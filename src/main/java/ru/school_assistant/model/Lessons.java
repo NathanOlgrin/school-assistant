@@ -17,7 +17,9 @@ public class Lessons {
     @EqualsAndHashCode.Include
     private Long id;
     private String name;
-    private List<Enum> daysOfWeek;
-    private List<Time> lessonStart;
-    private List<Time> lessonEnd;
+    private Enum daysOfWeek;
+    private Time lessonStart;
+    private Time lessonEnd;
+    private Long teacherId;
+    private Long numberOfClass;
 }

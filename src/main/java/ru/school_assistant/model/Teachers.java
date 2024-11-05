@@ -20,4 +20,5 @@ public class Teachers {
     private String middleName;
     private Date birthday;
     private Enum category;
+    private Long numberOfClass;
 }
