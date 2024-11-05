@@ -19,5 +19,5 @@ public class Students {
     private String lastName;
     private String middleName;
     private Date birthday;
-    private int yearOfStudy;
+    private Long yearOfStudy;
 }
