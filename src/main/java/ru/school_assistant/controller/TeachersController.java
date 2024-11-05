@@ -39,7 +39,7 @@ public class TeachersController {
     }
 
     @Operation(summary = "Get Teacher by Number Of Class", description = "Получить классного руководителя по номеру класса")
-    @GetMapping("/{numberOfClass}")
+    @GetMapping("/numberOfClass={numberOfClass}")
     public ResponseEntity<Teachers> findByNumberOfClass(@PathVariable @Parameter(description = "Идентификатор учителя")Long numberOfClass){
         Optional<Teachers> teachers = teachersService.findByNumberOfClass(numberOfClass);
         if(teachers.isPresent()){
@@ -70,5 +70,4 @@ public class TeachersController {
         teachersService.delete(id);
         return ResponseEntity.noContent().build();
     }
-
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.school_assistant.model.Students;
 import ru.school_assistant.model.StudentsLessons;
 import ru.school_assistant.model.Teachers;
+import ru.school_assistant.service.StudentsLessonsService;
 import ru.school_assistant.service.StudentsService;
 
 import java.util.List;
@@ -20,9 +21,11 @@ import java.util.Optional;
 public class StudentsController {
 
     private final StudentsService studentsService;
+    private final StudentsLessonsService studentsLessonsService;
 
-    public StudentsController(StudentsService studentsService) {
+    public StudentsController(StudentsService studentsService, StudentsLessonsService studentsLessonsService) {
         this.studentsService = studentsService;
+        this.studentsLessonsService = studentsLessonsService;
     }
 
     @Operation(summary = "Get Students", description = "Получить ученика по его идентификатору")
@@ -42,25 +45,25 @@ public class StudentsController {
     }
 
     @Operation(summary = "Get Students By Number Of Class", description = "Получить список всех учеников в классе")
-    @GetMapping("?numberOfClass")
+    @GetMapping("/numberOfClass={numberOfClass}")
     public ResponseEntity<List<Students>> findStudentsByNumberOfClass(@PathVariable @Parameter(description = "Номер класса") Long numberOfClass){
         return ResponseEntity.status(HttpStatus.OK).body(studentsService.findByNumberOfClass(numberOfClass));
     }
 
-    @Operation(summary = "Get Assesment Students By Lesson Id", description = "Получить оценку ученика по идентификатору урока")
-    @GetMapping("?lessonId")
-    public ResponseEntity<StudentsLessons> findByLessonId(@PathVariable @Parameter(description = "Идентификатор урока") Long id){
-        Optional<StudentsLessons> students = studentsService.findByLessonId(id);
-        if(students.isPresent()){
-            return ResponseEntity.status(HttpStatus.OK).body(students.get());
+    @Operation(summary = "Get Assesment Students By Lessons Id", description = "Получить оценку ученика по идентификатору урока и индентификатору ученика")
+    @GetMapping("/studentsId={studentsId}/lessonsId={lessonsId}")
+    public ResponseEntity<StudentsLessons> findByStudentsIdAndLessonsId(@PathVariable @Parameter(description = "Идентификатор ученика") Long studentsId, @PathVariable @Parameter(description = "Идентификатор урока") Long lessonsId){
+        StudentsLessons students = studentsLessonsService.findByLessonsIdAndStudentsId(lessonsId, studentsId);
+        if(students.isAttendance()){
+            return ResponseEntity.status(HttpStatus.OK).body(students);
         }
         return ResponseEntity.notFound().build();
     }
 
-    @Operation(summary = "Get List Assesment Students By Lesson Id", description = "Получить все оценки ученика по названию урока и идентификатору ученика")
-    @GetMapping("?lessonName&studentsId")
-    public ResponseEntity<List<StudentsLessons>> findByLessonName(@PathVariable @Parameter(description = "Название предмета") String lessonName, @PathVariable @Parameter(description = "Идентификатор ученика") Long studentsId){
-        return ResponseEntity.status(HttpStatus.OK).body(studentsService.findByLessonsName(lessonName, studentsId));
+    @Operation(summary = "Get List Assesment Students By Lessons Name", description = "Получить все оценки ученика по идентификатору ученика и названию урока")
+    @GetMapping("/studentsId={studentsId}/lessonsName={lessonsName}")
+    public ResponseEntity<List<StudentsLessons>> findByStudentsIdAndLessonsName(@PathVariable @Parameter(description = "Идентификатор ученика") Long studentsId, @PathVariable @Parameter(description = "Название предмета") String lessonsName){
+        return ResponseEntity.status(HttpStatus.OK).body(studentsService.findByLessonsName(lessonsName, studentsId));
     }
 
     @Operation(summary = "Create Students", description = "Создать ученика")

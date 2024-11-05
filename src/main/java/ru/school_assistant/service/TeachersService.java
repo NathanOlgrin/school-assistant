@@ -43,7 +43,7 @@ public class TeachersService {
         List<Lessons> lessons = lessonsRepository.findByTeacherId(teacherId);
         List<String> lessonsName = new ArrayList<>();
         for (Lessons lesson: lessons) {
-            lessonsName.add(lesson.getName());
+            lessonsName.add(lesson.getLessonsName());
         }
         Set<String> set = new HashSet<>(lessonsName);
         lessonsName.clear();

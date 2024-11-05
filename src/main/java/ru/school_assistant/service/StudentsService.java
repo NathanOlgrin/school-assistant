@@ -48,16 +48,12 @@ public class StudentsService {
         studentsRepository.deleteById(id);
     }
 
-    public Optional<StudentsLessons> findByLessonId(Long lessonId){ //поиск оценки ученика по id одного определенного урока
-        return studentsLessonsRepository.findByLessonId(lessonId);
-    }
-
     public List<StudentsLessons> findByLessonsName(String lessonName, Long studentsId){ //поиск ВСЕХ оценок ученика по определенному предмету
         Long numberOfClass = studentsRepository.findById(studentsId).get().getNumberOfClass();  //поиск номера класса, в котором находится ученик, в таблице lessons
         List<Lessons> lessonsOfClass = lessonsRepository.findByLessonsNameAndNumberOfClass(lessonName, numberOfClass); //поиск ВСЕХ уроков с таким названием для этого класса
         List<StudentsLessons> studentsLessons = new ArrayList<>();
         for (Lessons lessons: lessonsOfClass) {
-            studentsLessons.add(studentsLessonsRepository.findByLessonIdAndStudentId(lessons.getId(), studentsId));
+            studentsLessons.add(studentsLessonsRepository.findByLessonsIdAndStudentsId(lessons.getId(), studentsId));
         }
         return studentsLessons;
     }

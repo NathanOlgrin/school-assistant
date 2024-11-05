@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.sql.Time;
-import java.util.List;
+import java.time.LocalTime;
 
 @Data
 @Entity
@@ -16,10 +15,10 @@ public class Lessons {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @EqualsAndHashCode.Include
     private Long id;
-    private String name;
+    private String lessonsName;
     private Enum daysOfWeek;
-    private Time lessonStart;
-    private Time lessonEnd;
+    private LocalTime lessonStart;
+    private LocalTime lessonEnd;
     private Long teacherId;
     private Long numberOfClass;
 }

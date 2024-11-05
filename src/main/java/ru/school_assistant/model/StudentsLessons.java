@@ -3,7 +3,7 @@ package ru.school_assistant.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -15,16 +15,16 @@ public class StudentsLessons {
     Long id;
 
     @JoinColumn(name = "student_id")
-    Long studentId;
+    Long studentsId;
 
     @JoinColumn(name = "lesson_id")
-    Long lessonId;
+    Long lessonsId;
 
     @JoinColumn(name = "assessment")  //Оценка, выставляемая за урок ученику
     int assessment;
 
     @JoinColumn(name = "date_assesment")
-    Date dateAssesment;
+    LocalDate dateAssesment;
 
     @JoinColumn(name = "attendance")
     boolean attendance;

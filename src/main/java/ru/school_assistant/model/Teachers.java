@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -18,7 +18,7 @@ public class Teachers {
     private String firstName;
     private String lastName;
     private String middleName;
-    private Date birthday;
+    private LocalDate birthday;
     private Enum category;
     private Long numberOfClass;
 }

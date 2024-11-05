@@ -41,7 +41,7 @@ public class LessonsController {
     }
 
     @Operation(summary = "Get Lessons in Day", description = "Получить список уроков всех классов в этот день")
-    @GetMapping("/{daysOfWeek}")
+    @GetMapping("/daysOfWeek={daysOfWeek}")
     public ResponseEntity<List<Lessons>> findByDaysOfWeek(@PathVariable @Parameter(description = "День недели") String daysOfWeek){
         if(!lessonsService.findByDaysOfWeek(daysOfWeek).isEmpty()){
             return ResponseEntity.status(HttpStatus.OK).body(lessonsService.findByDaysOfWeek(daysOfWeek));
@@ -49,8 +49,8 @@ public class LessonsController {
         return ResponseEntity.notFound().build();
     }
     @Operation(summary = "Get Lessons of Class in Day", description = "Получить список уроков ОПРЕДЕЛЕННОГО класса в этот день")
-    @GetMapping("/{daysOfWeek}&{numberOfClass}")
-    public ResponseEntity<List<Lessons>> findByDaysOfWeekAndNumberOfClass(@PathVariable @Parameter(description = "День недели") String daysOfWeek, @PathVariable @Parameter(description = "Номер класса") Long numberOfClass){
+    @GetMapping("/numberOfClass={numberOfClass}/daysOfWeek={daysOfWeek}")
+    public ResponseEntity<List<Lessons>> findByDaysOfWeekAndNumberOfClass(@PathVariable @Parameter(description = "Номер класса") Long numberOfClass, @PathVariable @Parameter(description = "День недели") String daysOfWeek){
         if(!lessonsService.findByDaysOfWeekAndNumberOfClass(daysOfWeek, numberOfClass).isEmpty()){
             return ResponseEntity.status(HttpStatus.OK).body(lessonsService.findByDaysOfWeekAndNumberOfClass(daysOfWeek, numberOfClass));
         }

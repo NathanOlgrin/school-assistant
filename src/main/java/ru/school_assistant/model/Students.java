@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -19,6 +20,6 @@ public class Students {
     private String firstName;
     private String lastName;
     private String middleName;
-    private Date birthday;
+    private LocalDate birthday;
     private Long numberOfClass;
 }
