@@ -1,12 +1,11 @@
 package ru.school_assistant.service;
 
 import org.springframework.stereotype.Service;
+import ru.school_assistant.model.DayOfWeek;
 import ru.school_assistant.model.Lessons;
 import ru.school_assistant.repository.LessonsRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class LessonsService {
@@ -17,22 +16,28 @@ public class LessonsService {
         this.lessonsRepository = lessonsRepository;
     }
 
-    public Optional<Lessons> findById(Long id) {
+    public Optional<Lessons> findById(Long id) { //получить один определенный урок
         return lessonsRepository.findById(id);
     }
 
-    public List<Lessons> findByDaysOfWeek(Enum dayOfWeek){
-        return lessonsRepository.findByDaysOfWeek(dayOfWeek);
+    public List<Lessons> findByDaysOfWeek(String day){ //поиск всех уроков всех классов за этот день
+        Optional<DayOfWeek> dayOfWeek = Arrays.stream(DayOfWeek.values()).filter(d -> d.toString().equals(day)).findFirst();
+        return lessonsRepository.findByDaysOfWeek(dayOfWeek.get());
     }
 
-    public List<Lessons> findAll(){
+    public List<Lessons> findByDaysOfWeekAndNumberOfClass(String day, Long numberOfClass){ //поиск всех уроков определенного класса за этот день
+        Optional<DayOfWeek> dayOfWeek = Arrays.stream(DayOfWeek.values()).filter(d -> d.toString().equals(day)).findFirst();
+                return lessonsRepository.findByDaysOfWeekAndNumberOfClass(dayOfWeek.get(), numberOfClass);
+    }
+
+    public List<Lessons> findAll(){ //получить список всех уроков
         return lessonsRepository.findAll();
     }
 
-    public Lessons create(Lessons lessons){
+    public Lessons create(Lessons lessons){ //создание урока
         return lessonsRepository.save(lessons);
     }
-    public void delete(Long id){
+    public void delete(Long id){ //удаление урока
         lessonsRepository.deleteById(id);
     }
 }

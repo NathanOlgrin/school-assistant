@@ -36,6 +36,10 @@ public class StudentsService {
         return studentsRepository.findAll();
     }
 
+    public List<Students> findByNumberOfClass(Long numberOfClass){
+        return studentsRepository.findByNumberOfClass(numberOfClass);
+    }
+
     public Students create(Students students){ //создание нового ученика
         return studentsRepository.save(students);
     }
