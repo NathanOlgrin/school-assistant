@@ -4,12 +4,14 @@ spring:
   application:
     name: school-assistant-rest
   datasource:
-    url: jdbc:h2:mem:test
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/schoolassistantdatabase
+    username: root
+    password: imperial_team
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    show-sql: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 eureka:
   client:
     serviceUrl:
