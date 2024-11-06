@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmyleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Страница всех уроков</title>
+</head>
+<body>
+<h1>Уроки</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Идентификатор урока</th>
+        <th>Наименование урока</th>
+        <th>Время начала урока</th>
+        <th>Время окончания урока</th>
+        <th>Для какого класса проводится</th>
+        <th>Фамилия И.О. преподавателя</th>
+        <th>В какой день недели проводится</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="lesson: ${lessons}">
+        <td><span th:text="${lesson.getId()}"></span></td>
+        <td><span th:text="${lesson.getLessonsName()}"></span></td>
+        <td><span th:text="${lesson.getLessonStart()}"></span></td>
+        <td><span th:text="${lesson.getLessonEnd()}"></span></td>
+        <td><span th:text="${lesson.getNumberOfClass()}"></span></td>
+        <td><span th:text="${lesson.getTeacherName}"></span></td>
+        <td><span th:text="${lesson.getDaysOfWeek()}"></span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
