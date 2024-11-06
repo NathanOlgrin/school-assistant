@@ -1,4 +1,4 @@
-package ru.school_assistant.model;
+package ru.school_assistant_rest.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -19,6 +19,6 @@ public class Teachers {
     private String lastName;
     private String middleName;
     private LocalDate birthday;
-    private Enum category;
+    private QualificationCategory category;
     private Long numberOfClass;
 }

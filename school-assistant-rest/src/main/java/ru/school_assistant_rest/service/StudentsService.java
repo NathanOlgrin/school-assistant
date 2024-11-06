@@ -1,13 +1,13 @@
-package ru.school_assistant.service;
+package ru.school_assistant_rest.service;
 
 import org.springframework.stereotype.Service;
-import ru.school_assistant.model.Lessons;
-import ru.school_assistant.model.Students;
-import ru.school_assistant.model.StudentsLessons;
-import ru.school_assistant.repository.LessonsRepository;
-import ru.school_assistant.repository.StudentsLessonsRepository;
-import ru.school_assistant.repository.StudentsRepository;
-import ru.school_assistant.repository.TeachersRepository;
+import ru.school_assistant_rest.model.Lessons;
+import ru.school_assistant_rest.model.Students;
+import ru.school_assistant_rest.model.StudentsLessons;
+import ru.school_assistant_rest.repository.LessonsRepository;
+import ru.school_assistant_rest.repository.StudentsLessonsRepository;
+import ru.school_assistant_rest.repository.StudentsRepository;
+import ru.school_assistant_rest.repository.TeachersRepository;
 
 import java.util.ArrayList;
 import java.util.List;

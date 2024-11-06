@@ -1,4 +1,4 @@
-package ru.school_assistant.controller;
+package ru.school_assistant_rest.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -6,8 +6,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.school_assistant.model.Teachers;
-import ru.school_assistant.service.TeachersService;
+import ru.school_assistant_rest.model.Teachers;
+import ru.school_assistant_rest.service.TeachersService;
 
 import java.util.List;
 import java.util.Optional;

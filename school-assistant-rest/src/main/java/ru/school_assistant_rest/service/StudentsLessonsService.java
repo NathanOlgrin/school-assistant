@@ -1,9 +1,9 @@
-package ru.school_assistant.service;
+package ru.school_assistant_rest.service;
 
 import org.springframework.stereotype.Service;
-import ru.school_assistant.model.StudentsLessons;
-import ru.school_assistant.model.Teachers;
-import ru.school_assistant.repository.StudentsLessonsRepository;
+import ru.school_assistant_rest.model.StudentsLessons;
+import ru.school_assistant_rest.model.Teachers;
+import ru.school_assistant_rest.repository.StudentsLessonsRepository;
 
 import java.util.List;
 import java.util.Optional;

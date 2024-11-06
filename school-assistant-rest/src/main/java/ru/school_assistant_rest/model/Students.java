@@ -1,4 +1,4 @@
-package ru.school_assistant.model;
+package ru.school_assistant_rest.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

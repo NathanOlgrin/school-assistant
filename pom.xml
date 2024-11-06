@@ -11,7 +11,8 @@
 	<groupId>ru</groupId>
 	<artifactId>school-assistant</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>school-assistant</name>
+    <packaging>pom</packaging>
+    <name>school-assistant</name>
 	<description>Electronic school assistant for teachers, parents and children</description>
 	<url/>
 	<licenses>
@@ -20,7 +21,12 @@
 	<developers>
 		<developer/>
 	</developers>
-	<scm>
+    <modules>
+        <module>school-assistant-rest</module>
+		<module>school-assistant-page</module>
+        <module>school-assistant-eureka</module>
+    </modules>
+    <scm>
 		<connection/>
 		<developerConnection/>
 		<tag/>
@@ -33,11 +39,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>3.3.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -57,10 +58,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
 		</dependency>
 	</dependencies>
 

@@ -1,9 +1,9 @@
-package ru.school_assistant.repository;
+package ru.school_assistant_rest.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.school_assistant.model.DayOfWeek;
-import ru.school_assistant.model.Lessons;
+import ru.school_assistant_rest.model.DayOfWeek;
+import ru.school_assistant_rest.model.Lessons;
 
 import java.util.List;
 

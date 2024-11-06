@@ -1,4 +1,4 @@
-package ru.school_assistant.model;
+package ru.school_assistant_rest.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class Lessons {
     @EqualsAndHashCode.Include
     private Long id;
     private String lessonsName;
-    private Enum daysOfWeek;
+    private DayOfWeek daysOfWeek;
     private LocalTime lessonStart;
     private LocalTime lessonEnd;
     private Long teacherId;
