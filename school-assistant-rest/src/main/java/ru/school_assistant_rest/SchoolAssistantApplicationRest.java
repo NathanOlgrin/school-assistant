@@ -23,19 +23,19 @@ public class SchoolAssistantApplicationRest {
 //		UserRoleRepository userRoleRepository = context.getBean(UserRoleRepository.class);
 //		RolesRepository rolesReposiroty = context.getBean(RolesRepository.class);
 //
-//		User admin = new User();
-//		admin.setLogin("admin");
-//		admin.setPassword("$2a$12$srFV5znyP.go2SErncePxeP0C2KMXfGckt4MtiQ98zynyC82G2xc2");  // admin
+//		User user = new User();
+//		user.setLogin("user");
+//		user.setPassword("$2a$12$Vqo1hQvoKxSvNDzMospHpOP7TqAFjq9GPW/t3oLWUzJXCLUXsm7mi");  // user
 //
-//		admin = userReposiroty.save(admin);
+//		user = userReposiroty.save(user);
 //
-//		Roles adminRoles = new Roles();
-//		adminRoles.setName("admin");
-//		rolesReposiroty.save(adminRoles);
+//		Roles userRoles = new Roles();
+//		userRoles.setName("user");
+//		rolesReposiroty.save(userRoles);
 //
 //		UserRole adminAdminRole = new UserRole();
-//		adminAdminRole.setUserId(admin.getId());
-//		adminAdminRole.setRolesId(adminRoles.getId());
+//		adminAdminRole.setUserId(user.getId());
+//		adminAdminRole.setRolesId(userRoles.getId());
 //		userRoleRepository.save(adminAdminRole);
 	}
 }

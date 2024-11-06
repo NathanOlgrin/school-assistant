@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmyleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Страница ученика</title>
+</head>
+<body>
+<h1>Ученик №<span th:text="${student.getId()}"></span></h1>
+Фамилия: <span th:text="${student.getFirstName()}"></span><br>
+Имя: <span th:text="${student.getMiddleName()}"></span><br>
+Отчество: <span th:text="${student.getLastName()}"></span><br>
+Дата рождения: <span th:text="${student.getBirthday()}"></span><br>
+Класс: <span th:text="${student.getNumberOfClass()}"></span><br>
+</body>
+</html>

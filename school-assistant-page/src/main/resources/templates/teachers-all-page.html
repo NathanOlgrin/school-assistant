@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmyleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Список всех учителей</title>
+</head>
+<body>
+<h1>Учителя</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Идентификатор учителя</th>
+        <th>Фамилия учителя</th>
+        <th>Имя учителя</th>
+        <th>Отчество учителя</th>
+        <th>День рождения</th>
+        <th>Классное руководство</th>
+        <th>Квалификация</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="teacher: ${teachers}">
+        <td><span th:text="${teacher.getId()}"></span></td>
+        <td><span th:text="${teacher.getFirstName()}"></span></td>
+        <td><span th:text="${teacher.getMiddleName()}"></span></td>
+        <td><span th:text="${teacher.getLastName()}"></span></td>
+        <td><span th:text="${teacher.getBirthday()}"></span></td>
+        <td><span th:text="${teacher.getNumberOfClass()}"></span></td>
+        <td><span th:text="${teacher.getCategory()}"></span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

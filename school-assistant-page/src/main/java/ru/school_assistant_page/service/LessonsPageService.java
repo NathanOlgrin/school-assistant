@@ -40,7 +40,6 @@ public class LessonsPageService {
     public Optional<LessonsPageDto> findById(long id){
         try{
 
-
             LessonsResponse lesson = restClient().get().uri("/lessons/"+id).retrieve().body(LessonsResponse.class);
 
             LessonsPageDto lessonsPageDto = new LessonsPageDto();
