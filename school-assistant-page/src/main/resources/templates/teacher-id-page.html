@@ -13,7 +13,7 @@
 Имя: <span th:text="${teacher.getMiddleName()}"></span><br>
 Отчество: <span th:text="${teacher.getLastName()}"></span><br>
 Дата рождения: <span th:text="${teacher.getBirthday()}"></span><br>
-Классное руководство: <span th:text="${teacher.getNumberOfClass()}"></span><br>
+Классное руководство: <a th:href="@{'/class/{numberOfClass}'(numberOfClass=${teacher.numberOfClass})}"> <span th:text="${teacher.getNumberOfClass()}"></span></a><br>
 Квалификация: <span th:text="${teacher.getCategory()}"></span><br>
 </body>
 </html>

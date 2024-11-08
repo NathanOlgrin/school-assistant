@@ -13,6 +13,6 @@
 Имя: <span th:text="${student.getMiddleName()}"></span><br>
 Отчество: <span th:text="${student.getLastName()}"></span><br>
 Дата рождения: <span th:text="${student.getBirthday()}"></span><br>
-Класс: <span th:text="${student.getNumberOfClass()}"></span><br>
+Класс: <a th:href="@{'/class/{numberOfClass}'(numberOfClass=${student.numberOfClass})}"> <span th:text="${student.getNumberOfClass()}"></span></a><br>
 </body>
 </html>

@@ -27,7 +27,7 @@
         <td><span th:text="${student.getMiddleName()}"></span></td>
         <td><span th:text="${student.getLastName()}"></span></td>
         <td><span th:text="${student.getBirthday()}"></span></td>
-        <td><span th:text="${student.getNumberOfClass()}"></span></td>
+        <td><a th:href="@{'/class/{numberOfClass}'(numberOfClass=${student.numberOfClass})}"> <span th:text="${student.getNumberOfClass()}"></span></a><td>
     </tr>
     </tbody>
 </table>

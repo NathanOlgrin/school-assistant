@@ -27,7 +27,7 @@
         <td><span th:text="${lesson.getLessonsName()}"></span></td>
         <td><span th:text="${lesson.getLessonStart()}"></span></td>
         <td><span th:text="${lesson.getLessonEnd()}"></span></td>
-        <td><span th:text="${lesson.getNumberOfClass()}"></span></td>
+        <td><a th:href="@{'/class/{numberOfClass}'(numberOfClass=${lesson.numberOfClass})}"> <span th:text="${lesson.getNumberOfClass()}"></span></a></td>
         <td><span th:text="${lesson.getTeacherName}"></span></td>
         <td><span th:text="${lesson.getDaysOfWeek()}"></span></td>
     </tr>

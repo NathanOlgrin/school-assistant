@@ -10,7 +10,7 @@
 <body>
 <h1>Урок №<span th:text="${lesson.getId()}"></span></h1>
 Наименование урока: <span th:text="${lesson.getLessonsName()}"></span><br>
-Класс: <span th:text="${lesson.getNumberOfClass()}"></span><br>
+Класс: <a th:href="@{'/class/{numberOfClass}'(numberOfClass=${lesson.numberOfClass})}"> <span th:text="${lesson.getNumberOfClass()}"></span></a><br>
 Начало урока: <span th:text="${lesson.getLessonStart()}"></span><br>
 Конец урока: <span th:text="${lesson.getLessonEnd()}"></span><br>
 Преподаватель: <span th:text="${lesson.getTeacherName}"></span><br>

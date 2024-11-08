@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmyleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Список класса</title>
+</head>
+<body>
+<h1>Класс №<span th:text="${class.getNumberOfClass()}"></span></h1>
+Классный руководитель: <span th:text="${class.getTeachersName()}"></span><br>
+Список класса: <span th:text="${class.getStudentsName()}"></span><br>
+</body>
+</html>
