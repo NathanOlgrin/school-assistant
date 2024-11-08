@@ -29,7 +29,7 @@ public class StudentsPageService {
         ServiceInstance serviceInstance = instances.get(instanceIndex);
 
         String uri = "http://"+serviceInstance.getHost() + ":" + serviceInstance.getPort();
-        return RestClient.create(uri);
+        return RestClient.builder().baseUrl(uri).defaultHeaders(httpHeaders -> {httpHeaders.setBasicAuth("user", "user");}).build();
     }
 
     public Optional<StudentsPageDto> findById(Long id){

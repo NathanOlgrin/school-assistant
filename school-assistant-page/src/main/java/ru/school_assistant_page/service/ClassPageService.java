@@ -31,7 +31,7 @@ public class ClassPageService {
         ServiceInstance serviceInstance = instances.get(instanceIndex);
 
         String uri = "http://"+serviceInstance.getHost() + ":" + serviceInstance.getPort();
-        return RestClient.create(uri);
+        return RestClient.builder().baseUrl(uri).defaultHeaders(httpHeaders -> {httpHeaders.setBasicAuth("user", "user");}).build();
     }
 
     public Optional<ClassPageDto> findByNumberOfClass(Long numberOfClass){

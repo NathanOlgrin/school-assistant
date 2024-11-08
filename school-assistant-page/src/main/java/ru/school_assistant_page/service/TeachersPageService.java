@@ -6,7 +6,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
-import ru.school_assistant_page.client.StudentsResponse;
 import ru.school_assistant_page.client.TeachersResponse;
 import ru.school_assistant_page.controller.dto.TeachersPageDto;
 
@@ -30,7 +29,7 @@ public class TeachersPageService {
         ServiceInstance serviceInstance = instances.get(instanceIndex);
 
         String uri = "http://"+serviceInstance.getHost() + ":" + serviceInstance.getPort();
-        return RestClient.create(uri);
+        return RestClient.builder().baseUrl(uri).defaultHeaders(httpHeaders -> {httpHeaders.setBasicAuth("user", "user");}).build();
     }
 
     public Optional<TeachersPageDto> findById(Long id){

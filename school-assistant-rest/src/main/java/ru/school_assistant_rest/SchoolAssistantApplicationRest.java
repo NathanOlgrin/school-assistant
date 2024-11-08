@@ -19,23 +19,5 @@ public class SchoolAssistantApplicationRest {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(SchoolAssistantApplicationRest.class, args);
 
-//		UserRepository userReposiroty = context.getBean(UserRepository.class);
-//		UserRoleRepository userRoleRepository = context.getBean(UserRoleRepository.class);
-//		RolesRepository rolesReposiroty = context.getBean(RolesRepository.class);
-//
-//		User user = new User();
-//		user.setLogin("user");
-//		user.setPassword("$2a$12$Vqo1hQvoKxSvNDzMospHpOP7TqAFjq9GPW/t3oLWUzJXCLUXsm7mi");  // user
-//
-//		user = userReposiroty.save(user);
-//
-//		Roles userRoles = new Roles();
-//		userRoles.setName("user");
-//		rolesReposiroty.save(userRoles);
-//
-//		UserRole adminAdminRole = new UserRole();
-//		adminAdminRole.setUserId(user.getId());
-//		adminAdminRole.setRolesId(userRoles.getId());
-//		userRoleRepository.save(adminAdminRole);
 	}
 }

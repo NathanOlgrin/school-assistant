@@ -6,14 +6,11 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
-import ru.school_assistant_page.client.DayOfWeek;
 import ru.school_assistant_page.client.LessonsResponse;
 import ru.school_assistant_page.client.TeachersResponse;
 import ru.school_assistant_page.controller.dto.LessonsPageDto;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
@@ -34,12 +31,13 @@ public class LessonsPageService {
         ServiceInstance serviceInstance = instances.get(instanceIndex);
 
         String uri = "http://"+serviceInstance.getHost() + ":" + serviceInstance.getPort();
-        return RestClient.create(uri);
+
+        return RestClient.builder().baseUrl(uri).defaultHeaders(httpHeaders -> {httpHeaders.setBasicAuth("user", "user");}).build();
     }
+
 
     public Optional<LessonsPageDto> findById(long id){
         try{
-
             LessonsResponse lesson = restClient().get().uri("/lessons/"+id).retrieve().body(LessonsResponse.class);
 
             LessonsPageDto lessonsPageDto = new LessonsPageDto();
